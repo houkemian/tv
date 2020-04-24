@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hkm.tv.anchor.mapper.AnchorMapper">
+
+
+    <resultMap id="baseMap" type="Anchor">
+        <id column="id" property="id" />
+        <result column="name" property="name"/>
+        <result column="key" property="key"/>
+        <result column="state" property="state" typeHandler="org.hkm.tv.anchor.mybatis.AnchorStateTypeHandler"/>
+        <result column="level" property="level"/>
+        <result column="room_id" property="roomId"/>
+    </resultMap>
+
+
+    <select id="findByAnchorId" resultMap="baseMap" parameterType="long" >
+        SELECT * FROM anchor WHERE id=#{id}
+    </select>
+
+    <select id="findAll" resultMap="baseMap">
+        SELECT * FROM anchor
+    </select>
+
+    <select id="findByRoomId" resultMap="baseMap">
+        SELECT * FROM anchor where room_id=#{roomId}
+    </select>
+
+</mapper>

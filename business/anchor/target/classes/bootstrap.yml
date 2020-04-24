@@ -1,0 +1,21 @@
+server:
+#  port: 8090
+  port: 8090
+spring:
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://192.168.3.28:8888
+      name: common,rediskey,rocketmq,anchor
+  application:
+    name: anchor
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 192.168.3.2
+
+mybatis:
+  type-aliases-package: org.hkm.*.*.entity

@@ -1,0 +1,7 @@
+<ul class="heroes">
+  <li *ngFor="let anchor of anchorList">
+    <a [routerLink]="[anchor.roomId]">
+      <span class="badge">{{ anchor.id }}</span>{{ anchor.name }}
+    </a>
+  </li>
+</ul>
